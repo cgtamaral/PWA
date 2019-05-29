@@ -1,0 +1,310 @@
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: Roboto,sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh;
+    background: #F8F8FA;
+}
+
+.container {
+    padding: 0px;
+    max-width: 100%;
+}
+
+.bar{
+    background:#fb6b55;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+}
+.card .header {
+    display: flex;
+    padding: 22px 18px 0 18px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: inherit;
+    color: #F8F8FA;
+    z-index: 10;
+}
+.card .header i {
+    margin-top: 10px;
+    font-size: 18px;
+}
+.card .main {
+    height: 54.20340975896531vh;
+}
+.card .details {
+    text-align: center;
+    width: 100%;
+}
+.card .details h3 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+}
+.card .details span {
+    text-transform: uppercase;
+    font-size: 13px;
+    word-spacing: 4px;
+    letter-spacing: 2px;
+}
+
+.card-container {
+    width: 90%;
+}
+
+.profile-card {
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    margin-top: 71px;
+    border-radius: 5px;
+    box-shadow: -1px 3px 15px -5px rgba(0, 0, 0, 0.45);
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.profile-card__image {
+    margin: 0 auto;
+    width: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -57px;
+    left: 50%;
+    margin-left: -70px;
+}
+.profile-card__image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.profile-details {
+
+}
+.profile-details .numbers {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 20px 0 20px;
+}
+.profile-details .numbers .follower div:first-child {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.profile-details .numbers .travels div:first-child {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.profile-details button {
+    margin-top: 8px;
+    width: 60%;
+    height: 40px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-color: #fb6b55;
+    color: #F8F8FA;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.notification {
+    width: 25px;
+    height: 25px;
+    background-color: #F8F8FA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fb6b55;
+}
+
+.pinned-trip__label {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    width: 100%;
+    display: block;
+    margin: 20px 0;
+}
+
+.pinned-trip {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+    height: 152px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: -1px 3px 15px -5px rgba(0, 0, 0, 0.45);
+}
+
+.pinned-trip__photographs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex: 1 1 50%;
+    padding: 19px 15px;
+}
+
+.pinned-trip__description {
+    text-align: left;
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    color: #404040;
+}
+
+.pinned-trip__itenary {
+    font-size: 12px;
+    text-align: left;
+}
+.pinned-trip__itenary span {
+    margin: 3px;
+}
+
+.pinned-trip__moredetails {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fb6b55;
+}
+
+.pinned-trip__map {
+    flex: 1 1 8%;
+    background-color: #d9d6d5;
+    border-radius: 0 0 0 0;
+    overflow: hidden;
+}
+
+.pinned-trip__map img{
+    width: 100%;
+}
+
+.planned-trips {
+    display: flex;
+    flex-direction: column;
+    /*height: 253px;*/
+    overflow: auto;
+    margin-bottom: 5px;
+}
+
+.planned-trips__card {
+    display: flex;
+    align-items: center;
+    flex: 0 0 90px;
+    background-color: #F8F8FA;
+    margin: 7px 1px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 5px 1px #c7c1c7;
+}
+
+/*
+.planned-trips__card:nth-of-type(1) {
+    border-left: 5px solid #fb6b55;
+}*/
+
+.planned-trip__image {
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.planned-trip__image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.planned-trip__image i {
+    font-size: 200px;
+}
+
+.planned-trip__description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 3 3 60%;
+    padding: 10px;
+}
+.planned-trip__description > span {
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #404040;
+}
+
+.planned-trip__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid black;
+    color: #a9a29f;
+    width: 24%;
+    padding-left: 10px;
+}
+.planned-trip__date span {
+    display: inline-block;
+    text-transform: uppercase;
+}
+.planned-trip__date span:first-child {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.planned-trip__date span:nth-of-type(2) {
+    font-size: 12px;
+}
+
+.pinned-trip__itenary {
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+.pinned-trip__itenary span:nth-of-type(2),
+.pinned-trip__itenary i {
+    margin: 0;
+    color: #a9a29f;
+}
+
+.card_empty{
+    display: none;
+}
+
+.card_loading{
+
+}
+
+#card_content {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .pinned-trip__map {
+        flex: 1 1 50%;
+    }
+}
+

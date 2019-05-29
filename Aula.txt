@@ -1,0 +1,28 @@
+PWA
+Estrutura:
+
+Index.html
+manifest.json
+serviceworker.json
+app.js
+images
+style.css
+dados.json
+offline.html
+
+
+web-push-codelab.glitch.me
+
+ftp.marcosarrais.com
+
+user:puc@marcosarrais.com
+
+senha:
+sMUV6UygjFkR
+
+
+www.marcosarrais.com/puc/SEU_NOME/
+
+
+https://appicon.co/ --> criar icones
+https://www.favicon-generator.org/ --> gerar fav icon
