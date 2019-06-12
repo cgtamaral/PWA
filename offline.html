@@ -1,0 +1,318 @@
+<!--
+ Your First PWA Codelab (https://g.co/codelabs/pwa)
+
+ Copyright 2019 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale com o Síndico</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#96B1FF" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            color: #444;
+            font-family: 'Helvetica', 'Verdana', sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            align-content: stretch;
+            align-items: stretch;
+            background: #ececec;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+
+        /**
+        * Header
+        */
+
+        .header {
+            align-content: center;
+            align-items: stretch;
+            background: #96B1FF;
+            box-shadow:
+                    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                    0 2px 9px 1px rgba(0, 0, 0, 0.12),
+                    0 4px 2px -2px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            font-size: 20px;
+            height: 56px;
+            justify-content: flex-start;
+            padding: 16px 16px 0 16px;
+            position: fixed;
+            transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+            width: 100%;
+            will-change: transform;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            flex: 1;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .header .powered-by {
+            color: white;
+            font-size: 0.6em;
+            text-decoration: none;
+        }
+
+        .main {
+            flex: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-top: 60px;
+        }
+
+        .offline-card {
+            background: #fff;
+            border-radius: 2px;
+            box-shadow:
+                    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            margin: 16px;
+            padding: 16px;
+            position: relative;
+            text-align: center;
+        }
+        #card_content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .planned-trips {
+            display: flex;
+            flex-direction: column;
+            /*height: 253px;*/
+            overflow: auto;
+            margin-bottom: 5px;
+        }
+
+        .planned-trips__card {
+            display: flex;
+            align-items: center;
+            flex: 0 0 90px;
+            background-color: #F8F8FA;
+            margin: 7px 1px;
+            border-radius: 5px;
+            padding: 10px 10px;
+            box-shadow: 0px 0px 5px 1px #c7c1c7;
+        }
+
+        .planned-trip__image {
+            width: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            height: 60px;
+        }
+        .planned-trip__image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .planned-trip__image i {
+            font-size: 200px;
+        }
+
+        .planned-trip__description {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            flex: 3 3 60%;
+            padding: 10px;
+        }
+        .planned-trip__description > span {
+            letter-spacing: 1px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #404040;
+        }
+
+        .planned-trip__date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid black;
+            color: #a9a29f;
+            width: 24%;
+            padding-left: 10px;
+        }
+        .planned-trip__date span {
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .planned-trip__date span:first-child {
+            font-size: 30px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        .planned-trip__date span:nth-of-type(2) {
+            font-size: 12px;
+        }
+
+        .pinned-trip__itenary {
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+        .pinned-trip__itenary span:nth-of-type(2),
+        .pinned-trip__itenary i {
+            margin: 0;
+            color: #a9a29f;
+        }
+        .card_empty{
+            display: none;
+        }
+
+        .card_loading{
+
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h1>
+        Viagens - Marcos
+    </h1>
+</header>
+<main class="main">
+    <div class="offline-card">
+        <img src="images/offline.svg" alt="" width="100" height="100" class="offline">
+        <div>
+            Oops, você parece estar sem conexão. Para acessar esse aplicativo é necessário estar conectado.
+        </div>
+        <hr>
+        <h5>Guardamos esse conteúdo para você:</h5>
+
+        <div class="planned-trips__card card_empty">
+            <div class="planned-trip__description">
+                <span><i class="fa fa-frown"></i>&nbsp;Nenhuma mensagem</span>
+            </div>
+
+        </div>
+        <div class="planned-trips__card card_loading">
+            <div class="planned-trip__image">
+                <img src="images/loading-1.gif" alt="some image" />
+            </div>
+            <div class="planned-trip__description">
+                <span>Aguardando mensagens...</span>
+            </div>
+
+        </div>
+
+        <div id="card_content">
+
+
+        </div>
+    </div>
+
+</main>
+<script>
+/*###########################
+
+Coletando postagens
+
+#############################*/
+
+    var ajax = new XMLHttpRequest();
+
+    // Seta tipo de requisição e URL com os parâmetros
+    ajax.open("GET", "dados.json", true);
+
+    // Envia a requisição
+    ajax.send();
+
+    // Cria um evento para receber o retorno.
+    ajax.onreadystatechange = function() {
+
+        // Caso o state seja 4 e o http.status for 200, é porque a requisiçõe deu certo.
+        if (ajax.readyState == 4 && ajax.status == 200) {
+
+            // Retorno do Ajax
+            var data = ajax.responseText;
+
+            var data_json = JSON.parse(data);
+
+
+            if(data_json.length == 0){
+                document.getElementsByClassName('card_loading')[0].style.display = 'none';
+                document.getElementsByClassName('card_empty')[0].style.display = 'block';
+            }else {
+
+                document.getElementsByClassName('card_loading')[0].style.display = 'none';
+
+                var container_viagens = document.getElementById('card_content');
+
+                container_viagens.innerHTML = "";
+
+                var html_viagens = "";
+                for (var i = 0; i < data_json.length; i++) {
+
+                    html_viagens += template_card(data_json[i]['nome'],data_json[i]['apartamento'],data_json[i]['url'],data_json[i]['dia'],data_json[i]['mes']);
+
+                }
+
+                container_viagens.innerHTML = html_viagens;
+
+            }
+        }
+    }
+
+    var template_card = function(nome,apto, url,dia,mes){
+
+        return '<div class="planned-trips__card">\n' +
+        '                        <div class="planned-trip__image">\n' +
+        '                            <img src="'+url+'" alt="imagem do condômino " />\n' +
+        '                        </div>\n' +
+        '                        <div class="planned-trip__description">\n' +
+        '                            <span>'+nome+'</span>\n' +
+        '                            <span>'+apto+'</span>\n' +
+        '                        </div>\n' +
+        '                    </div>';
+        }
+</script>
+</body>
+</html>

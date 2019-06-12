@@ -22,9 +22,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viagens - Marcos</title>
+    <title>Fale com o Síndico</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#fb6b55" />
+    <meta name="theme-color" content="#96B1FF" />
     <link rel="shortcut icon" href="favicon.ico" />
     <style>
         * {
@@ -64,7 +64,7 @@
         .header {
             align-content: center;
             align-items: stretch;
-            background: #fb6b55;
+            background: #96B1FF;
             box-shadow:
                     0 4px 5px 0 rgba(0, 0, 0, 0.14),
                     0 2px 9px 1px rgba(0, 0, 0, 0.12),
@@ -141,11 +141,6 @@
             box-shadow: 0px 0px 5px 1px #c7c1c7;
         }
 
-        /*
-        .planned-trips__card:nth-of-type(1) {
-            border-left: 5px solid #fb6b55;
-        }*/
-
         .planned-trip__image {
             width: 60px;
             border-radius: 50%;
@@ -220,7 +215,7 @@
 <body>
 <header class="header">
     <h1>
-        Viagens - Marcos
+        Fale com o Síndico
     </h1>
 </header>
 <main class="main">
@@ -234,7 +229,7 @@
 
         <div class="planned-trips__card card_empty">
             <div class="planned-trip__description">
-                <span><i class="fa fa-frown"></i>&nbsp;Nenhuma viagem</span>
+                <span><i class="fa fa-frown"></i>&nbsp;Nenhuma mensagem</span>
             </div>
 
         </div>
@@ -243,7 +238,7 @@
                 <img src="images/loading-1.gif" alt="some image" />
             </div>
             <div class="planned-trip__description">
-                <span>Aguardando viagens...</span>
+                <span>Aguardando mensagens...</span>
             </div>
 
         </div>
@@ -296,7 +291,7 @@ Coletando postagens
                 var html_viagens = "";
                 for (var i = 0; i < data_json.length; i++) {
 
-                    html_viagens += template_card(data_json[i]['nome'],data_json[i]['url'],data_json[i]['dia'],data_json[i]['mes']);
+                    html_viagens += template_card(data_json[i]['nome'],data_json[i]['apartamento'],data_json[i]['url'],data_json[i]['dia'],data_json[i]['mes']);
 
                 }
 
@@ -306,24 +301,17 @@ Coletando postagens
         }
     }
 
-    var template_card = function(cidade,url,dia,mes){
+    var template_card = function(nome,apto, url,dia,mes){
 
-        return '<div class="planned-trips__card">\n' +
-            '                        <div class="planned-trip__image">\n' +
-            '                            <img src="'+url+'" alt="imagem da viagem" />\n' +
-            '                        </div>\n' +
-            '                        <div class="planned-trip__description">\n' +
-            '                            <span>'+cidade+'</span>\n' +
-            '                            <div class="pinned-trip__itenary">\n' +
-            '                                <span>7</span><span>Dias</span>\n' +
-            '                                <span>56 <i class="fa fa-camera-retro"></i></span>\n' +
-            '                            </div>\n' +
-            '                        </div>\n' +
-            '                        <div class="planned-trip__date">\n' +
-            '                            <span>'+dia+'</span>\n' +
-            '                            <span>'+mes+'</span>\n' +
-            '                        </div>\n' +
-            '                    </div>';
+    return '<div class="planned-trips__card">\n' +
+    '                        <div class="planned-trip__image">\n' +
+    '                            <img src="'+url+'" alt="imagem do condômino " />\n' +
+    '                        </div>\n' +
+    '                        <div class="planned-trip__description">\n' +
+    '                            <span>'+nome+'</span>\n' +
+    '                            <span>'+apto+'</span>\n' +
+    '                        </div>\n' +
+    '                    </div>';
     }
 </script>
 </body>
