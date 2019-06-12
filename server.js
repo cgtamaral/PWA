@@ -1,4 +1,4 @@
-/ server.js
+// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./app/routes');
