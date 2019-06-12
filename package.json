@@ -1,0 +1,19 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "Fale com o Sindico",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgtamaral/PWA.git"
+  },
+  "author": "Cleber Amaral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgtamaral/PWA/issues"
+  },
+  "homepage": "https://github.com/cgtamaral/PWA#readme"
+}
